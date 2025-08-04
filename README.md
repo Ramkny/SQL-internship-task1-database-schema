@@ -1,0 +1,1 @@
+# SQL-internship-task1-database-schema
