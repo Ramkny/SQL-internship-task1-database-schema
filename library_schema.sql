@@ -1,0 +1,37 @@
+DROP DATABASE IF EXISTS LibraryDB;
+CREATE DATABASE LibraryDB;
+USE LibraryDB;
+
+CREATE TABLE Authors (
+    AuthorID INT PRIMARY KEY AUTO_INCREMENT,
+    Name VARCHAR(100)
+);
+
+CREATE TABLE Books (
+    BookID INT PRIMARY KEY AUTO_INCREMENT,
+    Title VARCHAR(100),
+    AuthorID INT,
+    FOREIGN KEY (AuthorID) REFERENCES Authors(AuthorID)
+);
+
+CREATE TABLE Members (
+    MemberID INT PRIMARY KEY AUTO_INCREMENT,
+    Name VARCHAR(100),
+    Email VARCHAR(100)
+);
+
+SHOW DATABASES;
+
+
+CREATE TABLE Loans (
+    LoanID INT PRIMARY KEY AUTO_INCREMENT,
+    BookID INT,
+    MemberID INT,
+    LoanDate DATE,
+    ReturnDate DATE,
+    FOREIGN KEY (BookID) REFERENCES Books(BookID),
+    FOREIGN KEY (MemberID) REFERENCES Members(MemberID)
+);
+
+
+library_schema.sql
